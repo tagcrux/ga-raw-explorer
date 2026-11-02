@@ -1,6 +1,6 @@
 # GA Raw Explorer
 
-**Live demo:** https://tag-crux.github.io/ga-raw-explorer/
+**Live app:** https://ga-explorer.tagcrux.com · [Privacy Policy](https://ga-explorer.tagcrux.com/privacy.html) · [Terms](https://ga-explorer.tagcrux.com/terms.html)
 
 Browse **raw Google Analytics 4 data** from every account and property you have access to, right in your browser.
 
@@ -47,7 +47,7 @@ Browser ──(GIS token client, popup)──▶ Google OAuth ──▶ access t
 5. **Clients → Create client → Web application**. Under **Authorized JavaScript origins** add every origin you
    will open the app from, e.g.
    - `http://localhost:5173` (dev server)
-   - `https://<your-user>.github.io` (GitHub Pages)
+   - `https://<your-user>.github.io` or your custom domain (GitHub Pages)
 
    No redirect URI is needed (the token model uses a popup).
 

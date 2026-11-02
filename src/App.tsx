@@ -6,6 +6,7 @@ import { PRESETS, daysAgo } from './lib/dates';
 import { PropertyPicker } from './components/PropertyPicker';
 import { FieldPicker } from './components/FieldPicker';
 import { ResultTable } from './components/ResultTable';
+import { Landing } from './components/Landing';
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined;
 const MAX_DIMENSIONS = 9;
@@ -189,29 +190,7 @@ export default function App() {
   }
 
   if (!session) {
-    return (
-      <div className="center-screen">
-        <div className="card login">
-          <img src="./favicon.svg" width={56} height={56} alt="" />
-          <h1>GA Raw Explorer</h1>
-          <p>Browse raw Google Analytics 4 data from every property you have access to.</p>
-          <ul className="bullets">
-            <li>Runs entirely in your browser</li>
-            <li>No backend, no database, nothing stored</li>
-            <li>Read-only access (<code>analytics.readonly</code>)</li>
-          </ul>
-          <button className="primary big" disabled={!authReady} onClick={login}>
-            {authReady ? 'Sign in with Google' : 'Loading…'}
-          </button>
-          {error && <p className="error">{error}</p>}
-          <p className="muted small">
-            <a href={REPO_URL} target="_blank" rel="noreferrer">
-              Source code
-            </a>
-          </p>
-        </div>
-      </div>
-    );
+    return <Landing authReady={authReady} error={error} onSignIn={login} repoUrl={REPO_URL} />;
   }
 
   return (
@@ -221,6 +200,9 @@ export default function App() {
         <span className="muted small">{propertyName}</span>
         <div className="spacer" />
         {email && <span className="small">{email}</span>}
+        <a className="small" href="./privacy.html" target="_blank" rel="noreferrer">
+          Privacy
+        </a>
         <button onClick={logout}>Sign out</button>
       </header>
 

@@ -27,7 +27,7 @@
     "node": ">=18.19"
   },
   "author": "tag-crux",
-  "homepage": "https://tag-crux.github.io/ga-raw-explorer/",
+  "homepage": "https://ga-explorer.tagcrux.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/tag-crux/ga-raw-explorer.git"
