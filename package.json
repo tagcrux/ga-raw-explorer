@@ -1,0 +1,44 @@
+{
+  "name": "ga-raw-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browse raw Google Analytics 4 data in the browser. No backend, no database, no data storage.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/google.accounts": "^0.0.18",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.5"
+  },
+  "engines": {
+    "node": ">=18.19"
+  },
+  "author": "tag-crux",
+  "homepage": "https://tag-crux.github.io/ga-raw-explorer/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tag-crux/ga-raw-explorer.git"
+  },
+  "keywords": [
+    "google-analytics",
+    "ga4",
+    "analytics-data-api",
+    "react",
+    "typescript",
+    "vite",
+    "oauth"
+  ]
+}
