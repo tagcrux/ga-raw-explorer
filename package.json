@@ -26,11 +26,11 @@
   "engines": {
     "node": ">=18.19"
   },
-  "author": "tag-crux",
+  "author": "tagcrux",
   "homepage": "https://ga-explorer.tagcrux.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tag-crux/ga-raw-explorer.git"
+    "url": "https://github.com/tagcrux/ga-raw-explorer.git"
   },
   "keywords": [
     "google-analytics",

@@ -80,7 +80,7 @@ export function Landing({ authReady, error, onSignIn, repoUrl }: Props) {
         <a href={repoUrl} target="_blank" rel="noreferrer">
           Source code
         </a>
-        <span className="muted">© 2026 tag-crux · MIT License</span>
+        <span className="muted">© 2026 tagcrux · MIT License</span>
       </footer>
     </div>
   );

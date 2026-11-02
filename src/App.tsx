@@ -11,7 +11,7 @@ import { Landing } from './components/Landing';
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined;
 const MAX_DIMENSIONS = 9;
 const MAX_METRICS = 10;
-const REPO_URL = 'https://github.com/tag-crux/ga-raw-explorer';
+const REPO_URL = 'https://github.com/tagcrux/ga-raw-explorer';
 
 export default function App() {
   const [authReady, setAuthReady] = useState(false);
