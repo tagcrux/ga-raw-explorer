@@ -79,9 +79,43 @@ export function signIn(): Promise<Session> {
   });
 }
 
-export function signOut(session: Session | null): Promise<void> {
+interface RevokeResult {
+  successful?: boolean;
+  error?: string;
+  error_description?: string;
+}
+
+function revokeWithGis(token: string): Promise<RevokeResult | undefined> {
   return new Promise((resolve) => {
-    if (!session) return resolve();
-    google.accounts.oauth2.revoke(session.accessToken, () => resolve());
+    // GIS passes a RevocationResponse to the callback at runtime, although the typings declare `() => void`.
+    const done = (resp?: RevokeResult) => resolve(resp);
+    (google.accounts.oauth2.revoke as (t: string, cb: (r?: RevokeResult) => void) => void)(token, done);
   });
+}
+
+async function revokeWithEndpoint(token: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://oauth2.googleapis.com/revoke', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ token }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Revokes the grant with Google (removes the app's access from the user's account).
+ * Resolves to true if Google confirmed the revocation.
+ */
+export async function signOut(session: Session | null): Promise<boolean> {
+  if (!session) return true;
+  const resp = await revokeWithGis(session.accessToken);
+  if (resp?.successful) return true;
+  console.warn('GIS token revocation failed, retrying via revoke endpoint', resp);
+  const ok = await revokeWithEndpoint(session.accessToken);
+  if (!ok) console.warn('Token revocation via revoke endpoint failed');
+  return ok;
 }

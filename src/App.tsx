@@ -78,8 +78,14 @@ export default function App() {
   };
 
   const logout = async () => {
-    await signOut(session);
+    const revoked = await signOut(session);
     resetAll();
+    if (!revoked) {
+      setError(
+        'Signed out, but Google did not confirm that access was revoked. ' +
+          'You can remove the app manually at myaccount.google.com/permissions.',
+      );
+    }
   };
 
   // auto-expire in-memory token
