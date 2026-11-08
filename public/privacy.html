@@ -11,7 +11,7 @@
   <nav><a href="./">← GA Raw Explorer</a><a href="./terms.html">Terms of Service</a></nav>
   <main>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: November 2, 2026</p>
+    <p class="muted">Last updated: November 8, 2026</p>
 
     <p>
       GA Raw Explorer ("the app") is an open-source web application operated by tagcrux. It lets you view raw
@@ -45,13 +45,41 @@
       analytics, or training of any kind.
     </p>
 
-    <h2>Storage</h2>
+    <h2>Data protection</h2>
+    <p>We protect Google user data, including sensitive Google Analytics data, with the following measures:</p>
     <ul>
-      <li>The OAuth access token is kept only in the browser's memory. It is not written to cookies, localStorage,
-        sessionStorage or any server, and it is revoked when you sign out.</li>
-      <li>Report data exists only in the open browser tab and disappears when you close or reload it.</li>
-      <li>If you choose "Export CSV" or "Export JSON", the file is created locally in your browser and saved to your
-        own device. It is never uploaded anywhere.</li>
+      <li><strong>Encryption in transit:</strong> the app is served only over HTTPS (HTTP is redirected to HTTPS), and
+        all requests to Google APIs and Google Identity Services use HTTPS/TLS.</li>
+      <li><strong>No server-side copy:</strong> the app has no backend, database or logging service. Google user data
+        is never transmitted to, stored on, or accessible from any server operated by us, so there is no stored copy
+        that could be breached or accessed by our staff.</li>
+      <li><strong>In-memory token only:</strong> the OAuth access token is kept only in the browser's memory. It is not
+        written to cookies, localStorage, sessionStorage, IndexedDB or any server.</li>
+      <li><strong>Short-lived, least-privilege access:</strong> the app requests only the read-only scope
+        <code>analytics.readonly</code> and uses Google's short-lived access tokens (about one hour), without refresh
+        tokens or offline access.</li>
+      <li><strong>Minimal third-party code:</strong> the only external script loaded is Google Identity Services
+        (<code>accounts.google.com</code>). No analytics, advertising or tracking scripts are used.</li>
+      <li><strong>Transparency:</strong> the full source code is public, so these measures can be independently
+        verified.</li>
+    </ul>
+
+    <h2>Data retention and deletion</h2>
+    <ul>
+      <li><strong>Retention:</strong> we do not retain any Google user data. Account lists, field metadata and report
+        data exist only in the open browser tab while you use the app.</li>
+      <li><strong>Automatic deletion:</strong> all Google user data is deleted from memory when you sign out, when you
+        close or reload the tab, or when the access token expires (about one hour), whichever comes first. On expiry
+        the app clears its state and asks you to sign in again.</li>
+      <li><strong>Sign out:</strong> signing out revokes the access token with Google and immediately clears all data
+        from the page.</li>
+      <li><strong>Revoking access:</strong> you can also remove the app's access at any time from your Google Account at
+        <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+      <li><strong>Exports:</strong> if you choose "Export CSV" or "Export JSON", the file is created locally in your
+        browser and saved to your own device. It is never uploaded anywhere; you control and can delete it at any time.</li>
+      <li><strong>Deletion requests:</strong> because we hold no Google user data on any server, there is nothing for us
+        to delete. If you have questions, contact <a href="mailto:developer@tagcrux.com">developer@tagcrux.com</a> and
+        we will respond within 30 days.</li>
     </ul>
 
     <h2>Sharing</h2>
